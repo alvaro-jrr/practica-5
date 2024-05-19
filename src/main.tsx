@@ -1,14 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import "./index.css";
 import { BasePage } from "./components/base-page";
-import { HomePage } from "./features/home/home-page";
-import { LoginPage } from "./features/auth/pages/login-page";
-import { SignUpPage } from "./features/auth/pages/sign-up-page";
 import { ErrorPage } from "./features/error/error-page";
-import { OffersPage } from "./features/offers/pages/offers-page";
 import { Toaster } from "./components/ui/toaster";
+import "./index.css";
 
 const router = createBrowserRouter([
   {
@@ -17,19 +13,49 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <HomePage />,
+        async lazy() {
+          const { HomePage } = await import("@/features/home/home-page");
+
+          return {
+            Component: HomePage,
+          };
+        },
       },
       {
         path: "/login",
-        element: <LoginPage />,
+        async lazy() {
+          const { LoginPage } = await import(
+            "@/features/auth/pages/login-page"
+          );
+
+          return {
+            Component: LoginPage,
+          };
+        },
       },
       {
         path: "/sign-up",
-        element: <SignUpPage />,
+        async lazy() {
+          const { SignUpPage } = await import(
+            "@/features/auth/pages/sign-up-page"
+          );
+
+          return {
+            Component: SignUpPage,
+          };
+        },
       },
       {
         path: "/offers",
-        element: <OffersPage />,
+        async lazy() {
+          const { OffersPage } = await import(
+            "@/features/offers/pages/offers-page"
+          );
+
+          return {
+            Component: OffersPage,
+          };
+        },
       },
     ],
   },
