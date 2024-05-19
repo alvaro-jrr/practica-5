@@ -11,10 +11,6 @@ const routes: Array<{
     title: "Ofertas",
     to: "/offers",
   },
-  {
-    title: "Empresas",
-    to: "/companies",
-  },
 ];
 
 export function NavBar() {

@@ -10,7 +10,7 @@ export function Section({
   headerProps?: React.ComponentProps<typeof Header>;
 }) {
   return (
-    <main className={cn("flex-1 container py-6", className)}>
+    <main className={cn("flex-1 container py-6 space-y-6", className)}>
       {headerProps ? <Header {...headerProps} /> : null}
 
       {children ?? null}
