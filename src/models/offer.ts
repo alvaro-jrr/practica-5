@@ -1,7 +1,6 @@
 import { z } from "zod";
 
 export const Offer = z.object({
-  id: z.number({ message: "Debe ser un número" }).nullable(),
   title: z
     .string()
     .min(1, "Debe ingresar un título")

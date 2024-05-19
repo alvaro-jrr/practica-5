@@ -7,6 +7,7 @@ import { HomePage } from "./features/home/home-page";
 import { LoginPage } from "./features/auth/pages/login-page";
 import { SignUpPage } from "./features/auth/pages/sign-up-page";
 import { ErrorPage } from "./features/error/error-page";
+import { OffersPage } from "./features/offers/pages/offers-page";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: "/sign-up",
         element: <SignUpPage />,
+      },
+      {
+        path: "/offers",
+        element: <OffersPage />,
       },
     ],
   },
